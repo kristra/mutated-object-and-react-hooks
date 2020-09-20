@@ -49,7 +49,7 @@ export const App = () => {
           <img src={dog} alt="dog" />
           <p>{dog}</p>
           <button onClick={() => fetchDog(index)}>Update dog</button>
-          <button onClick={() => mutateDog(index)}>Update dog</button>
+          <button onClick={() => mutateDog(index)}>Mutate dog</button>
         </div>
       )),
     // eslint-disable-next-line react-hooks/exhaustive-deps
