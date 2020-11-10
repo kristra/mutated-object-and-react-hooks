@@ -19,7 +19,7 @@ export const App = () => {
     }
   };
 
-  const fetchDog = async (index) => {
+  const updateDog = async (index) => {
     try {
       const response = await fetch("https://dog.ceo/api/breeds/image/random");
       const json = await response.json();
@@ -35,8 +35,9 @@ export const App = () => {
     try {
       const response = await fetch("https://dog.ceo/api/breeds/image/random");
       const json = await response.json();
-      dogs[index] = json.message;
-      dispatch(setDogs(dogs));
+      const newDogs = dogs;
+      newDogs[index] = json.message;
+      dispatch(setDogs(newDogs));
     } catch (error) {
       console.error(error);
     }
@@ -48,7 +49,7 @@ export const App = () => {
         <div className="item" key={index}>
           <img src={dog} alt="dog" />
           <p>{dog}</p>
-          <button onClick={() => fetchDog(index)}>Update dog</button>
+          <button onClick={() => updateDog(index)}>Update dog</button>
           <button onClick={() => mutateDog(index)}>Mutate dog</button>
         </div>
       )),
